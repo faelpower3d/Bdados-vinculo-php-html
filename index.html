@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">        
+    <style>
+        input[name="pnome"]{
+            width: 89vw;            
+        }
+        input[name="pend"]{
+            width: 63vw;
+        }
+        input[name="pbairro"],input[name="pcid"]{
+            width: 40vw;
+        }
+        fieldset{
+            width: 50vw;
+        }
+    </style>
+
+    </head>
+    <body><form method="post" action="php.php">
+        <h1>Cadastro de Clientes</h1>        
+        <p>Nome: <input type="text" name="pnome">
+        <p>Endereço: <input type="text" name="pend"> Numero: <input type="text" name="n">
+        <p>Bairro: <input type="text" name="pbairro"> 
+        Cidade: <input type="text" name="pcid">
+        <p>estado: 
+            <select id="estado" name="estado">
+            <option value="SP">SP</option>
+            <option value="RJ">RJ</option>
+            <option value="TO">TO</option>
+            <option value="RS">RS</option>
+            <option value="PR">PR</option>
+            </select>
+             CEP:<input type="text" name="pcep">
+        <p>Telefone: <input type="tel" required> Celular: <input type="text" name="pcel">
+        <p>Email: <input type="text" name="pemail">       
+        <p>Data de Nascimento: <input type="date" name="pdata">      
+        
+        <p><input type="submit" value="enviar">
+        <input type="reset" value="limpar">       
+        </body>
+    </html>
