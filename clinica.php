@@ -9,10 +9,5 @@ if (!$con) {
     print('Erro: '.mysqli_connect_error());
     exit();
 }
-    
-
-
-
-
 
 ?>

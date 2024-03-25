@@ -9,7 +9,7 @@
     <?php
     // VERIFICAR SE O FORMULARIO FOI SUBMETIDO
     if ($_SERVER["REQUEST_METHOD"]==="POST"){
-        include ("conexao.php");
+        include ("clinica.php");
  
         //prepara os dados para inserção
         $nome = $_POST["nome"];
