@@ -71,7 +71,7 @@
         <?php
         include ("clinica.php");
         $query = 'SELECT * FROM especialidade ORDER BY descricao;';
-        $resu = mysqli_query($con, $query) or die (mysqli_connect_error()) ;
+        $resu = mysqli_query($con, $query) or die (mysqli_connect_error());
         while ($reg = mysqli_fetch_array($resu)) {
         ?>
          <option value="<?php echo $reg ['id'];?>"> <?php echo $reg ['descricao'];?>
