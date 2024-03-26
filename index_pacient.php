@@ -57,7 +57,7 @@
         <label> CPF :</label>
         <input type="text" size="11" maxlength="11" name="cpf" required>     
         <label> RG :</label>
-        <input type="text" size="9" maxlength="9" name="RG" required>           
+        <input type="text" size="9" maxlength="9" name="rg" required>           
         <label> CRM  nº: </label>        
         <label> Telefone: </label>
         <input type="tel" maxlength="15" name="telefone" placeholder="(XX)XXXX-XXXX" required>
