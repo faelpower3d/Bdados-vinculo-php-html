@@ -37,31 +37,50 @@
     <form method="post">
     <label> Nome: </label>
         <input type="text" size="80" maxlength="100" name="nome" required>
-        <label> CPF :</label>
-        <input type="text" size="11" maxlength="11" name="cpf" required>
+        
         <br><label> Endereço: </label>
         <input type="text" size="80" maxlength="100" name="endereco" required>
         <label> Número: </label>
         <input type="number" maxlength="10" name="numero" required>
+        <label> Complemento: </label>
+        <input type="text" size="60" maxlength="60" name="complemento" required>
         <label> Bairro: </label>
         <input type="text" size="60" maxlength="60" name="bairro" required>
         <label> Cidade: </label>
         <input type="text" size="40" maxlength="80" name="cidade" required>
-        <label> Estado: </label>
+        <label> Estado: </label>        
         <select name="estado">
-            <option value="SP"> São Paulo </option>
-            <option value="MG"> Minas Gerais </option>
-            <option value="PR"> Paraná </option>
-            <option value="RJ"> Rio de Janeiro  </option> </select>        
-        
-        <label> CRM  nº: </label>
-        <input type="text" size="20" maxlength="20" name="crm" required>
-        <label> Salario</label>
-        <input type="number" min="0" max="50000" name="salario" required>
+            <option value="SP">SP</option>
+            <option value="MG">MG</option>
+            <option value="PR">PR</option>
+            <option value="RJ">RJ</option> </select>   
+        <label> CPF :</label>
+        <input type="text" size="11" maxlength="11" name="cpf" required>     
+        <label> RG :</label>
+        <input type="text" size="9" maxlength="9" name="RG" required>           
+        <label> CRM  nº: </label>        
+        <label> Telefone: </label>
+        <input type="tel" maxlength="15" name="telefone" placeholder="(XX)XXXX-XXXX" required>
         <label> Celular: </label>
         <input type="tel" maxlength="15" name="celular" placeholder="(XX)XXXXX-XXXX" required>
-        <label> Especialidade :</label>
-        <select name="cod_esp" >
+        <label> e-mail: </label>
+        <input type="email" size="40" maxlength="80" name="email" required>
+        <?php
+        include ("clinica.php");
+        $query = 'SELECT * FROM especialidade ORDER BY descricao;';
+        $resu = mysqli_query($con, $query) or die (mysqli_connect_error());
+        while ($reg = mysqli_fetch_array($resu)) {
+        ?>
+         <option value="<?php echo $reg ['id'];?>"> <?php echo $reg ['descricao'];?>
+        </option>         
+        <?php
+        }
+        mysqli_close($con);
+        ?>
+        </select>
+        <p><input type="submit" value="Enviar"> <input type="reset" value="Limpar">
+    </form>
+        
         
 
     
