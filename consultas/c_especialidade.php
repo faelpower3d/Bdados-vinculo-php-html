@@ -14,9 +14,9 @@
             while ($reg = mysqli_fetch_array($resu)) { 
                 echo "<tr><td>".$reg['descricao']. "</td>"; 
                 echo "<td>".$reg['sigla']. "</td>"; 
-                echo "<td><a href='alterar_especialidade.php?id=". $reg['id']. "'>Editar</a></td>"; 
+                echo "<td><a href='../alterar/especialid.php?id=". $reg['id']."'>Editar</a></td>"; 
                 echo "<td> <a href='excluir especialidade.php?id=". $reg['id']. "'>Excluir </a></td></tr>"; 
-        }        
+            }        
         ?>        
         </table>        
         </form>        
