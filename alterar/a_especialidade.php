@@ -11,18 +11,16 @@
             if ($_SERVER ["REQUEST_METHOD"] == "POST" && isset($_POST['atualizar'])) { 
                 include('../clinica.php');
 
-
             // Prepara os dados para atualização 
             $id = $_POST["id"]; 
             $nome = $_POST["nome"]; 
             $sigla = $_POST ["sigla"];
 
 
-            // Prepara a consulta SQL para atualização de dados
-            
+            // Prepara a consulta SQL para atualização de dados            
             $query= "UPDATE especialidade SET descricao='$nome', sigla='$sigla' WHERE id=$id";
             
-            // Executa a query de atualização $resu= mysqli_query($con, $query);
+            // Executa a query de atualização 
             $resu = mysqli_query($con, $query);
 
             // Verifica se a atualização na tabela foi bem-sucedida 
@@ -33,11 +31,11 @@
                 }
                 
                 // Fecha a conexão com o banco de dados     
-                mysqli_close($con);     
-                header("Location: ../consultas/especialidade.php");
+                mysqli_close($con);                     
+                header("Location: ../consultas/c_especialidade.php");
                 
                 }elseif ($_SERVER ["REQUEST_METHOD"] == "POST" && isset($_POST['cancelar'])){     
-                    header("Location: ../consultas/especialidade.php");     
+                    header("Location: ../consultas/c_especialidade.php");     
                 }     
                 ?>     
                 <?php

@@ -9,11 +9,11 @@
 <?php 
 // Verifica se o ID foi passado via GET 
 if (isset($_GET['id'])) { 
-include('clinica.php'); 
+include('../clinica.php'); 
 $id = $_GET['id'];
  
 // Consulta SQL para obter os dados da especialidade com o ID especificaco 
-$query = "SELECT FROM especialidade WHERE id = $id"; 
+$query = "SELECT * FROM especialidade WHERE id = $id"; 
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
  
@@ -43,7 +43,7 @@ if ($row) {
  
 // Verifica se o formulário foi submetido 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmar'])) { 
-    include('clinica.php');
+    include('../clinica.php');
 
     // Prepara o ID para exclusão 
     $id = $_POST["id"]; 
@@ -62,14 +62,14 @@ if ($result) {
     echo "ERRO ao excluir a especialidade:" .mysqli_error($con);     
     }
      
-    // Fecha a conexão com o banco de dados
-     
+    // Fecha a conexão com o banco de dados     
     mysqli_close($con);
      
-    header("Location: consulta especialidade.php");
+    header("Location: ../consultas/c_especialidade.php");
      
     } elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cancelar'])) {     
-    // Redireciona de volta para a página inicial se o usuário cancelar a exclusão header("Location: consulta_especialidade.php");
+    // Redireciona de volta para a página inicial se o usuário cancelar a exclusão 
+    header("Location: ../consultas/c_especialidade.php");
     exit;     
     }     
     ?>
