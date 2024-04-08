@@ -27,7 +27,7 @@
     while ($reg=mysqli_fetch_array($resu)) {
         echo "<tr><td>".$reg['id_medico']."</td>"; 
         echo "<td>". $reg['nome']."</td>"; 
-        echo "<td><a href='edit_medico.php?id_medico=". $reg['id_medico']. "'>Editar</a></td>"; 
+        echo "<td><a href='../alterar/a_medico_template.php?id_medico=". $reg['id_medico']. "'>Editar</a></td>"; 
         echo "<td><a href='del_medico.php?id medico=". $reg['id_medico']."'>Excluir </a></td></tr>";
     }
     ?> 
