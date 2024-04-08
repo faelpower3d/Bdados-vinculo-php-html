@@ -31,12 +31,14 @@
     }
     ?>
     <form method="POST">
-          <label>Descricao da especialidade:</lavel>
+          <label>Descricao da especialidade:</label>
           <input type="text" name="nome" size="100" maxlenght="100" required>
           <p><label>Sigla:</label>
           <input type="text" name="sigla" size="3" maxlenght="3" required>
           <p><input type="submit" value="Enviar">
              <input type="reset" value="Limpar">
     </form>
+
+    <a href="./index.html"><button>Voltar</button></a>
 </body>
 </html>

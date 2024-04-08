@@ -31,8 +31,9 @@
         }else{
             echo "ERRO AO INSERIR OS DADOS : ".mysqli_connect_error();
         }
-        mysqli_close($con);
+        
     }
+   
     ?>
     <form method="post">
     <label> Nome: </label>
@@ -65,21 +66,13 @@
         <input type="tel" maxlength="15" name="celular" placeholder="(XX)XXXXX-XXXX" required>
         <label> e-mail: </label>
         <input type="email" size="40" maxlength="80" name="email" required>
-        <?php
-        include ("clinica.php");
-        $query = 'SELECT * FROM especialidade ORDER BY descricao;';
-        $resu = mysqli_query($con, $query) or die (mysqli_connect_error());
-        while ($reg = mysqli_fetch_array($resu)) {
-        ?>
-         <option value="<?php echo $reg ['id'];?>"> <?php echo $reg ['descricao'];?>
-        </option>         
-        <?php
-        }
+      <?php  
         mysqli_close($con);
-        ?>
+    ?>
         </select>
         <p><input type="submit" value="Enviar"> <input type="reset" value="Limpar">
     </form>
+    <a href="./index.html"><button>Voltar</button></a>
         
         
 
