@@ -31,7 +31,8 @@
         }else{
             echo "ERRO AO INSERIR OS DADOS : ".mysqli_connect_error();
         }
-        
+
+        mysqli_close($con);        
     }
    
     ?>
@@ -66,9 +67,6 @@
         <input type="tel" maxlength="15" name="celular" placeholder="(XX)XXXXX-XXXX" required>
         <label> e-mail: </label>
         <input type="email" size="40" maxlength="80" name="email" required>
-      <?php  
-        mysqli_close($con);
-    ?>
         </select>
         <p><input type="submit" value="Enviar"> <input type="reset" value="Limpar">
     </form>

@@ -74,6 +74,6 @@ while ($reg2= mysqli_fetch_array($resu2)) {
 mysqli_close($con); 
 ?> 
 </select> 
-<p><input type="submit" value="Salvar"> 
+<p><input type="submit" value="Salvar">
 </body> 
 </html>
