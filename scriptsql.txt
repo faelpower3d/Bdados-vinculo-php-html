@@ -34,3 +34,9 @@ telefone VARCHAR(15),
 celular VARCHAR(15),
 email VARCHAR(100)
 ) engine INNODB;
+CREATE TABLE telefone(
+
+id INTEGER AUTO_INCREMENT PRIMARY KEY,
+numero VARCHAR(15) NOT NULL,
+id_paciente INTEGER REFERENCES paciente(id)
+) engine INNODB;
