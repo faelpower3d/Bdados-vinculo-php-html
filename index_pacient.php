@@ -2,7 +2,6 @@
 <head>
     <meta charset="UTF-8">   
     <title>Paciente</title>
-
     <script>
         function addTel(){
             var divTel =document.getElementById("telefones");
@@ -17,68 +16,14 @@
 <body>
     <p><h1>Paciente - Inclusão</h1>
     <?php
-    //Verifica se o Formulario foi submetido
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        include ("clinica.php");
-        $nome = $_POST["nome"];
-        $endereco = $_POST["endereco"];
-        $numero = $_POST["numero"];
-        $complemento = $_POST["complemento"];
-        $bairro = $_POST["bairro"];
-        $cidade = $_POST["cidade"];
-        $estado = $_POST["estado"];
-        $cpf = $_POST["cpf"];
-        $rg = $_POST["rg"];
-        $telefone = $_POST["telefone"];
-        $celular = $_POST["celular"];        
-        $email = $_POST["email"];
-        $telefones= $_POST["telefones"];
-
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        include ("clinica.php");
-        mysqli_begin_transaction($con) or die (mysqli_connect_error());
-
-
-        try {
-
-        $query = "INSERT INTO  paciente(nome,endereco,numero,complemento,
-        bairro,cidade,estado,cpf,rg,telefone,celular,email)
-        VALUES ('$nome','$endereco','$numero','$complemento',
-        '$bairro','$cidade','$estado','$cpf','$rg','$telefone','$celular','$email')";
-        $result = mysqli_query($con, $query);
-        $id_paciente=mysqli_insert_id($con);
-        foreach ($telefones as $tel ) {
-            $query_tel = "INSERT INTO telefone (numero,id_paciente) VALUES ('$tel','$id_paciente')";
-            $resul=mysqli_query($con, $query_tel); 
-        }
-        mysqli_commit($con);
-        $_SESSION['msg'] = "<p style=color:green;'>Paciente cadastrado </p>";
-        header("Location: index_pacient.php");
-
-    } catch (mysqli_sql_exception $exeption) {
-        mysqli_rollback($con);
-
-        throw $exeption;
-        $_SESSION['msg'] = "<p style=color:green;'>Paciente NÃO cadastrado </p>";
-        header("Location: index_pacient.php");
-
+    if (isset($_SESSION['msg'])){
+        echo '<p>' . $_SESSION['msg'] . '</p>';
+        unset($_SESSION['msg']);
     }
-
-
-        if (mysqli_insert_id($con)) {
-            echo "Inclusão realizada com sucesso ! !";
-        }else{
-            echo "ERRO AO INSERIR OS DADOS : ".mysqli_connect_error();
-        }
-
-        mysqli_close($con);        
-    
-   
     ?>
-    <form method="post">
+    <form method="post" action="inc_pacient.php">
     <label> Nome: </label>
-        <input type="text" size="80" maxlength="100" name="nome" required>
-        
+        <input type="text" size="80" maxlength="100" name="nome" required>        
         <br><label> Endereço: </label>
         <input type="text" size="80" maxlength="100" name="endereco" required>
         <label> Número: </label>
@@ -106,10 +51,8 @@
         <label> e-mail: </label>
         <input type="email" size="40" maxlength="80" name="email" required>
         </select>
-
         <fieldset>
             <legend>TELEFONES</legend>
-
             <div id="telefones">
                 <label for="tel_1">Telefone 1:</label>
                 <input type="tel" name="telefones[]" placeholder = "(XX) XXXX-XXXX">                
@@ -120,9 +63,7 @@
         <p><input type="submit" value="Enviar"> <input type="reset" value="Limpar">
     </form>
     <a href="./index.html"><button>Voltar</button></a>
-        
-        
+   
 
-    
 </body>
 </html>
