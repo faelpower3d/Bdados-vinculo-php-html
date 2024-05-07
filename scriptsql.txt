@@ -40,3 +40,8 @@ id INTEGER AUTO_INCREMENT PRIMARY KEY,
 numero VARCHAR(15) NOT NULL,
 id_paciente INTEGER REFERENCES paciente(id)
 ) engine INNODB;
+
+CREATE VIEW consu_medicos_especialidade AS SELECT
+me.nome, me.crm,me.celular,me.cidade, esp.descricao
+AS Especialidade FROM medico me
+INNER JOIN especialidade esp ON me.cod_esp = esp.id;

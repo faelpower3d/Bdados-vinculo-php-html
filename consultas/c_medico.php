@@ -34,6 +34,7 @@
     </table></form> 
     <?php 
     mysqli_close($con); 
-    ?> 
+    ?>     
+    <a href="../index.html"><button>VOLTAR</button></a>
 </body> 
 </html>
